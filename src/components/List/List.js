@@ -1,18 +1,17 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import { ListGroup } from 'react-bootstrap'
 
 import './List.style.css'
 
 import Task from '../Task/Task'
 
 export default class List extends Component {
-  state = {
-    tasks: []
-  }
-
   render() {
+    const { tasks } = this.props
     return (
-      <ul className='list'>
-      </ul>
+      <ListGroup className='list'>
+        { tasks.map( task => <Task key={task.id} id={ task.id } text={ task.text } isDone={ task.isDone} />) }
+      </ListGroup>
     )
   }
 }

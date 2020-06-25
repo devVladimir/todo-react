@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import {Form, Button} from 'react-bootstrap'
+import React, { Component } from 'react'
+import { Form, Button } from 'react-bootstrap'
 
 import './Control.style.css'
 
@@ -15,17 +15,17 @@ export default class Control extends Component {
   }
 
   handleChange = (event) => {
-    this.setState({taskText: event.target.value})
+    this.setState( { taskText: event.target.value } )
   }
 
   render() {
     return (
-      <Form className="control"  onSubmit={this.handleSubmit}>
+      <Form className='control'  onSubmit={this.handleSubmit}>
         <Form.Control
           placeholder='Type your task here'
           value={this.state.taskText}
           onChange={this.handleChange}/>
-        <Button variant="primary" type="submit">
+        <Button variant='primary' type='submit'>
           Add task
         </Button>
       </Form>
