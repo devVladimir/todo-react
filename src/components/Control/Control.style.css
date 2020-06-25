@@ -1,0 +1,7 @@
+.control {
+    display: flex;
+    justify-content:  space-between;
+}
+.control-input {
+    max-width: 80%;
+}
