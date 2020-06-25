@@ -1,21 +1,18 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 
-import './List.style.css';
+import './List.style.css'
 
-import Task from '../Task/Task';
+import Task from '../Task/Task'
 
 export default class List extends Component {
+  state = {
+    tasks: []
+  }
 
-    state = {
-        tasks: []
-    }
-
-    render() {
-        return (
-            <ul className="list">
-                <Task taskName="Взять вилку"/>
-                <Task taskName="Начать работать"/>
-            </ul>
-        )
-    }
+  render() {
+    return (
+      <ul className='list'>
+      </ul>
+    )
+  }
 }

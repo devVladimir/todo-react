@@ -1,33 +1,34 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
+import {Form, Button} from 'react-bootstrap'
 
-import './Control.style.css';
+import './Control.style.css'
 
 export default class Control extends Component {
+  state = {
+    taskText: ''
+  }
+  
+  handleSubmit = (event) => {
+    const { addTask } = this.props
+    event.preventDefault()
+    addTask(this.state.taskText)
+  }
 
-    state = {
-        task: ""
-    }
-    
-    handleSubmit = (event) => {
-        event.preventDefault();
-        this.props.addTask(this.state.task);
-    }
+  handleChange = (event) => {
+    this.setState({taskText: event.target.value})
+  }
 
-    handleChange = (event) => {
-        this.setState({task: event.target.value});
-    }
-
-    render() {
-        return (
-            <form className="control" onSubmit={this.handleSubmit}>
-                <input
-                    className="control-input form-control"
-                    placeholder="Type your task here"
-                    value={this.state.value}
-                    onChange={this.handleChange}
-                    />
-                <button className="btn btn-primary" type="submit">Add task</button>
-            </form>
-        );
-    }
+  render() {
+    return (
+      <Form className="control"  onSubmit={this.handleSubmit}>
+        <Form.Control
+          placeholder='Type your task here'
+          value={this.state.taskText}
+          onChange={this.handleChange}/>
+        <Button variant="primary" type="submit">
+          Add task
+        </Button>
+      </Form>
+    )
+  }
 }
