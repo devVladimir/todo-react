@@ -15,16 +15,19 @@ export default class Control extends Component {
   }
 
   handleChange = (event) => {
-    this.setState( { taskText: event.target.value } )
+    this.setState({ taskText: event.target.value })
   }
 
   render() {
+    const { taskText } = this.state
+
     return (
       <Form className='control'  onSubmit={this.handleSubmit}>
         <Form.Control
           placeholder='Type your task here'
-          value={this.state.taskText}
-          onChange={this.handleChange}/>
+          value={taskText}
+          onChange={this.handleChange}
+        />
         <Button variant='primary' type='submit'>
           Add task
         </Button>

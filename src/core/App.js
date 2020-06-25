@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container}  from 'react-bootstrap'
+import { Container }  from 'react-bootstrap'
 
 import './App.style.css'
 
@@ -26,8 +26,8 @@ export default class App extends Component {
 
     return (
       <Container className='app'>
-        <Control addTask={this.addTask}/>
-        <List tasks={tasks}/>
+        <Control addTask={this.addTask} />
+        <List tasks={tasks} />
       </Container>
     )
   }

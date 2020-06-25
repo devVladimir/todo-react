@@ -10,7 +10,9 @@ export default class List extends Component {
     const { tasks } = this.props
     return (
       <ListGroup className='list'>
-        { tasks.map( task => <Task key={task.id} id={ task.id } text={ task.text } isDone={ task.isDone} />) }
+        {tasks.map(task =>
+          <Task key={task.id} id={task.id} text={task.text} isDone={task.isDone} />
+        )}
       </ListGroup>
     )
   }
