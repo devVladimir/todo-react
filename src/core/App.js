@@ -7,6 +7,9 @@ import Control from '../components/Control/Control'
 import List from '../components/List/List'
 
 export default class App extends Component {
+
+  maxId = 1;
+
   state = {
     tasks: [
       {
@@ -17,8 +20,16 @@ export default class App extends Component {
     ]
   }
 
-  addTask = (task) => {
-    console.log(task)
+  addTask = (text) => {
+    if(text === '') return
+
+    const newTask = {
+      id: ++this.maxId,
+      text,
+      isDone: false
+    }
+
+    this.setState({ tasks: [newTask, ...this.state.tasks] })
   }
 
   render() {

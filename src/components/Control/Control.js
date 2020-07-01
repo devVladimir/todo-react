@@ -12,6 +12,7 @@ export default class Control extends Component {
     const { addTask } = this.props
     event.preventDefault()
     addTask(this.state.taskText)
+    this.setState({ taskText: '' })
   }
 
   handleChange = (event) => {
