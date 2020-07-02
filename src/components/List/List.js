@@ -7,7 +7,7 @@ import Task from '../Task/Task'
 
 export default class List extends Component {
   render() {
-    const { tasks, onRemoveTask} = this.props
+    const { tasks, onRemoveTask, onCompleteTask} = this.props
     return (
       <ListGroup className='list'>
         {tasks.map(task =>
@@ -17,6 +17,7 @@ export default class List extends Component {
             text={task.text}
             isDone={task.isDone}
             removeTask={onRemoveTask}
+            completeTask={onCompleteTask}
             />
         )}
       </ListGroup>

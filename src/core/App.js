@@ -31,8 +31,24 @@ export default class App extends Component {
   }
 
   removeTask = (id) => {
-    const tasks = this.state.tasks.filter( task => task.id !== id)
-    this.setState({ tasks })
+    const { tasks } = this.state
+
+    const updatedTtasks = tasks.filter(task => task.id !== id)
+
+    this.setState({ tasks: updatedTtasks })
+  }
+
+  completeTask = (id) => {
+    const { tasks } = this.state
+
+    const updatedTtasks = tasks.map( task => {
+      if(task.id === id) {
+        task.isDone = !task.isDone
+      }
+      return task
+    })
+
+    this.setState({ tasks: updatedTtasks })
   }
 
   render() {
@@ -41,7 +57,7 @@ export default class App extends Component {
     return (
       <Container className='app'>
         <Control addTask={this.addTask} />
-        <List tasks={tasks} onRemoveTask={this.removeTask} />
+        <List tasks={tasks} onRemoveTask={this.removeTask} onCompleteTask={this.completeTask} />
       </Container>
     )
   }
