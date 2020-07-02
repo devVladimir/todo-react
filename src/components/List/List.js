@@ -7,11 +7,17 @@ import Task from '../Task/Task'
 
 export default class List extends Component {
   render() {
-    const { tasks } = this.props
+    const { tasks, onRemoveTask} = this.props
     return (
       <ListGroup className='list'>
         {tasks.map(task =>
-          <Task key={task.id} id={task.id} text={task.text} isDone={task.isDone} />
+          <Task
+            key={task.id}
+            id={task.id}
+            text={task.text}
+            isDone={task.isDone}
+            removeTask={onRemoveTask}
+            />
         )}
       </ListGroup>
     )

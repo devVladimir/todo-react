@@ -8,8 +8,6 @@ import List from '../components/List/List'
 
 export default class App extends Component {
 
-  maxId = 1;
-
   state = {
     tasks: [
       {
@@ -24,12 +22,17 @@ export default class App extends Component {
     if(text === '') return
 
     const newTask = {
-      id: ++this.maxId,
+      id: +new Date(),
       text,
       isDone: false
     }
 
     this.setState({ tasks: [newTask, ...this.state.tasks] })
+  }
+
+  removeTask = (id) => {
+    const tasks = this.state.tasks.filter( task => task.id !== id)
+    this.setState({ tasks })
   }
 
   render() {
@@ -38,7 +41,7 @@ export default class App extends Component {
     return (
       <Container className='app'>
         <Control addTask={this.addTask} />
-        <List tasks={tasks} />
+        <List tasks={tasks} onRemoveTask={this.removeTask} />
       </Container>
     )
   }
