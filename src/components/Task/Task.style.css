@@ -1,3 +1,6 @@
 .task:hover {
   cursor: pointer;
 }
+.task--done {
+  text-decoration: line-through;
+}

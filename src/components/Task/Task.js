@@ -27,16 +27,16 @@ export default class Task extends Component {
     const { id, text, isDone } = this.props
     return (
       <ListGroupItem className='task d-flex justify-content-between align-items-center'>
-        <span>{ text }</span>
+        <span className={ isDone ? 'task--done' : ''}>{ text }</span>
         <FormGroup className='d-flex justify-content-between align-items-center'>
+          <FormCheck
+                type="checkbox"
+                checked={isCheckboxChecked}
+                onChange={this.handleChange}
+              />
           <Button variant="danger" onClick={this.handleRemoveClick}>
             <FontAwesomeIcon icon={faTrash} />
           </Button>
-          <FormCheck
-              type="checkbox"
-              checked={isCheckboxChecked}
-              onChange={this.handleChange}
-            />
         </FormGroup>  
       </ListGroupItem>
     )
